@@ -9,11 +9,11 @@
   <script type="text/javascript" src="detect-es.js"></script>
   <script class="xhr-test" type="text/javascript" src="low-performance-detector.js"></script>
   <p>UA: <script>document.write(navigator.userAgent)</script></p>
-  <p>ES6: <script>document.write(detectES(6))</script></p>
-  <p>ES7: <script>document.write(detectES(7))</script></p>
-  <p>ES8: <script>document.write(detectES(8))</script></p>
-  <p>ES9: <script>document.write(detectES(9))</script></p>
-  <p>ES10: <script>document.write(detectES())</script></p>
+  <p>ES6: <script>document.write(detectES(6,true))</script></p>
+  <p>ES7: <script>document.write(detectES(7,true))</script></p>
+  <p>ES8: <script>document.write(detectES(8,true))</script></p>
+  <p>ES9: <script>document.write(detectES(9,true))</script></p>
+  <p>ES10: <script>document.write(detectES(10,true))</script></p>
   <p>atob: <script>document.write(!!window.atob)</script></p>
   <p>btoa: <script>document.write(!!window.btoa)</script></p>
   <p>webgl: <script>document.write(!!document.createElement("canvas").getContext("webgl"))</script></p>
