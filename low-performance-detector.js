@@ -1,18 +1,21 @@
 /**
+ * システム要件に合致するかどうかを調べる関数
+ *
  * 必須:
  * - detect-es.js
  * - クラス xhr-test と src が付与された script タグ
  *
- * ブロック条件:
+ * システム要件:
  * - ES8 完全対応
  * - ES9 一部対応 (オブジェクトのspread, for-await-of)
  * - base64 対応
  * - WEBGL 完全対応 (experimental-webgl 禁止)
  * - ローカルファイルアクセス
  * - Web Audio API 対応
+ * - Fetch API 対応
  */
 
-window.lowPerformanceDetector = function () {
+window.lowPerformanceDetector = function (onComplete) {
   var reasons = [];
   var tryit = function (reason, code) {
     try {
@@ -21,7 +24,7 @@ window.lowPerformanceDetector = function () {
         return;
       }
       if (!!code()) return;
-    } catch (e) {console.warn(e)}
+    } catch (e) {}
     reasons.push(reason);
   };
   tryit("ES8", function () {
@@ -35,16 +38,32 @@ window.lowPerformanceDetector = function () {
   tryit("WEBGL (Full support)", function () {
     return document.createElement("canvas").getContext("webgl");
   });
-  tryit("Reading local file", function () {
+  tryit("WEB Audio API", function () {
+    return "AudioContext" in window || webkitAudioContext in window;
+  });
+  tryit("Fetch API", function () {
+    return "fetch" in window;
+  });
+  var xhrResult = null;
+  try {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", document.querySelector("script.xhr-test").src);
     xhr.overrideMimeType("text/javascript");
     xhr.send();
-    console.log(xhr);
-    return true;
-  });
-  tryit("WEB Audio API", function () {
-    return "AudioContext" in window || webkitAudioContext in window;
-  });
-  return { result: reasons.length === 0, reasons: reasons };
+    xhr.onload = function () {
+      xhrResult = true;
+    };
+    xhr.onerror = function () {
+      xhrResult = false;
+    };
+  } catch (e) {
+    xhrResult = false;
+  }
+  var i = this.setInterval(function () {
+    if (xhrResult !== null) {
+      clearInterval(i);
+      if (xhrResult === false) reasons.push("Reading local file");
+      onComplete(reasons.length === 0, reasons);
+    }
+  }, 1);
 };
