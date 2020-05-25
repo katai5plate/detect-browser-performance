@@ -34,8 +34,7 @@ window.lowPerformanceBlocker = function () {
   });
   tryit("Reading local file", function () {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "js/libs/addons/detect-es.js");
-    xhr.overrideMimeType("text/javascript");
+    xhr.open("GET", "index.html");
     xhr.send();
   });
   tryit("WEB Audio", function () {
