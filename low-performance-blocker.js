@@ -17,7 +17,7 @@ window.lowPerformanceBlocker = function () {
         new Function(code);
         return;
       }
-      return !!code();
+      if (!!code()) return;
     } catch (e) {}
     reasons.push(reason);
   };
