@@ -8,7 +8,7 @@
 <body>
   <script type="text/javascript" src="detect-es.js"></script>
   <script type="text/javascript" src="low-performance-blocker.js"></script>
-  <p>file-access: <script>document.write((function(){try{var xhr=new XMLHttpRequest();xhr.open('GET',"detect-es.js");xhr.overrideMimeType('text/javascript');xhr.send();return true;}catch(e){return false;}})())</script></p>
+  <p>file-access: <script>document.write((function(){try{var xhr=new XMLHttpRequest();xhr.open('GET',"index.html");xhr.overrideMimeType('text/javascript');xhr.send();console.log(xhr.response);return true;}catch(e){return false;}})())</script></p>
   <p>ES6: <script>document.write(detectES(6))</script></p>
   <p>ES7: <script>document.write(detectES(7))</script></p>
   <p>ES8: <script>document.write(detectES(8))</script></p>
