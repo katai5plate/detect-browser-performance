@@ -21,7 +21,7 @@ window.lowPerformanceBlocker = function () {
         return;
       }
       if (!!code()) return;
-    } catch (e) {}
+    } catch (e) {console.warn(e)}
     reasons.push(reason);
   };
   tryit("ES8", function () {
@@ -40,6 +40,7 @@ window.lowPerformanceBlocker = function () {
     xhr.open("GET", document.querySelector("script.xhr-test").src);
     xhr.overrideMimeType("text/javascript");
     xhr.send();
+    console.log(xhr);
     return true;
   });
   tryit("WEB Audio API", function () {
