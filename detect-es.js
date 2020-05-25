@@ -335,5 +335,6 @@ window.detectES = function (es, only) {
     console.warn("動作要件を満たしていません(プロパティ): \n", errorLog.props);
   }
 
+  window.esResult = errorLog;
   return errorLog.syntax.length + errorLog.props.length === 0;
 };
