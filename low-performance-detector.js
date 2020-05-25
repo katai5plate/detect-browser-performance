@@ -12,7 +12,7 @@
  * - Web Audio API 対応
  */
 
-window.lowPerformanceBlocker = function () {
+window.lowPerformanceDetector = function () {
   var reasons = [];
   var tryit = function (reason, code) {
     try {
