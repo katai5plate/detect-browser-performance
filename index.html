@@ -7,6 +7,7 @@
 </head>
 <body>
   <script type="text/javascript" src="detect-es.js"></script>
+  <script type="text/javascript" src="low-performance-blocker.js"></script>
   <p>file-access: <script>document.write((function(){try{var xhr=new XMLHttpRequest();xhr.open('GET',"detect-es.js");xhr.overrideMimeType('text/javascript');xhr.send();return true;}catch(e){return false;}})())</script></p>
   <p>ES6: <script>document.write(detectES(6))</script></p>
   <p>ES7: <script>document.write(detectES(7))</script></p>
@@ -23,5 +24,8 @@
   <script>detectES()</script>
   <pre><script>document.write(window.esResult.syntax.join("\n"))</script></pre>
   <pre><script>document.write(window.esResult.props.join("\n"))</script></pre>
+  <p>LPB詳細:</p>
+  <pre class="lpb"></pre>
+  <script>document.querySelector(".lpb").innerText=lowPerformanceBlocker().reasons.join("\n")</script>
 </body>
 </html>
