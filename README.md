@@ -5,7 +5,7 @@ https://katai5plate.github.io/detect-browser-performance/
 
 ## 独自調査
 
-waw = web-audio-webkit
+waw = web-audio-webkit  
 
 - ツクール 1.6.2
   - 非対応: ES10, waw
@@ -15,3 +15,5 @@ waw = web-audio-webkit
   - 非対応: waw
 - Android Edge 45.03.4.4958
   - 非対応: waw
+- IE 11.778.18362.0
+  - 非対応: ES6-10, WEBGL(expはOK), wa, waw
