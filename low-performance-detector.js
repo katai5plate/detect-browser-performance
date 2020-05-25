@@ -7,7 +7,10 @@
  *
  * システム要件:
  * - ES8 完全対応
- * - ES9 一部対応 (オブジェクトのspread, for-await-of)
+ * - ES9 一部対応
+ *   - オブジェクトの spread
+ *   - for-await-of
+ *   - Promise.prototype.finally
  * - base64 対応
  * - WEBGL 完全対応 (experimental-webgl 禁止)
  * - ローカルファイルアクセス
@@ -32,6 +35,9 @@ window.lowPerformanceDetector = function (onComplete) {
   });
   tryit("ES9 Rest/Spread Properties", "(()=>({...[1,2]}))()");
   tryit("ES9 for-await-of", "async()=>{for await (let x of []) {}}");
+  tryit("ES9 Promise.prototype.finally", function () {
+    return !!eval("Promise.resolve(1).finally");
+  });
   tryit("base64 conversions", function () {
     return "atob" in window && "btoa" in window;
   });
