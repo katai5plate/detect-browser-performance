@@ -21,7 +21,7 @@ window.lowPerformanceBlocker = function () {
         return;
       }
       if (!!code()) return;
-    } catch (e) {}
+    } catch (e) {console.warn(e)}
     reasons.push(reason);
   };
   tryit("ES8", function () {
