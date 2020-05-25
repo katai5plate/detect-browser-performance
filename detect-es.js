@@ -10,6 +10,7 @@
  * detectES(9) // ES9 をテスト
  * detectES(10) // ES10 をテスト
  * detectES() // デフォルト動作として ES10 をテスト
+ * detectES(8, true) // ES8 "だけ" をテスト
  *
  * [[[ 構文テスト内容 ]]]
  * -- ES6 --
@@ -38,8 +39,9 @@
 
 /**
  * @param {number|undefined} [es=10] 6-10
+ * @param {boolean} [only=false] true にすると指定の ES しか調べない
  */
-window.detectES = function (es) {
+window.detectES = function (es, only) {
   if (typeof es !== "number" && es !== undefined)
     throw "無効な引数: number|undefined";
   if (!(6 <= es && es <= 10) && es !== undefined) throw "無効な引数: 6-10";
@@ -55,12 +57,16 @@ window.detectES = function (es) {
     }, []);
   };
   var branch = function (o) {
+    var pick = function (trigger, value) {
+      var cond = only ? esVersion === trigger : esVersion >= trigger;
+      return cond ? value || [] : [];
+    };
     return concatArray([
-      esVersion >= 6 ? o.es6 || [] : [],
-      esVersion >= 7 ? o.es7 || [] : [],
-      esVersion >= 8 ? o.es8 || [] : [],
-      esVersion >= 9 ? o.es9 || [] : [],
-      esVersion >= 10 ? o.es10 || [] : [],
+      pick(6, o.es6),
+      pick(7, o.es6),
+      pick(8, o.es6),
+      pick(9, o.es6),
+      pick(10, o.es6),
     ]);
   };
 
@@ -329,6 +335,5 @@ window.detectES = function (es) {
     console.warn("動作要件を満たしていません(プロパティ): \n", errorLog.props);
   }
 
-  window.esResult = errorLog;
   return errorLog.syntax.length + errorLog.props.length === 0;
 };
