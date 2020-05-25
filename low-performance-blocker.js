@@ -1,5 +1,8 @@
 /**
- * 必須: detect-es.js
+ * 必須:
+ * - detect-es.js
+ * - クラス xhr-test と src が付与された script タグ
+ *
  * ブロック条件:
  * - ES8 完全対応
  * - ES9 一部対応 (オブジェクトのspread, for-await-of)
@@ -34,8 +37,10 @@ window.lowPerformanceBlocker = function () {
   });
   tryit("Reading local file", function () {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "index.html");
+    xhr.open("GET", document.querySelector("script.xhr-test").src);
+    xhr.overrideMimeType("text/javascript");
     xhr.send();
+    return xhr.response;
   });
   tryit("WEB Audio", function () {
     return "AudioContext" in window || webkitAudioContext in window;
