@@ -20,3 +20,33 @@ waw = web-audio-webkit
   - 非対応: ES6-10, WEBGL(expはOK), wa, waw
 - iOS Safari 604.1
   - 非対応: 一部ES9(正規表現関連), ES10, wa
+- Edge 44.18362.449.0 (旧版)
+  - 非対応: ES6-10(所々実装されてる？), waw
+```
+detect-es詳細:
+オブジェクトのspread
+RegExp:先or後読み, UnicodePropEsc, NamedCaptureGroups, /s
+for-await-of
+JSONスーパーセット
+try-catchエラー省略
+'flat' in window.Array.prototype
+'flatMap' in window.Array.prototype
+'fromEntries' in window.Object
+'dotAll' in window.RegExp.prototype
+'trimStart' in window.String.prototype
+'trimEnd' in window.String.prototype
+'match' in window.Symbol
+'replace' in window.Symbol
+'search' in window.Symbol
+'split' in window.Symbol
+'description' in window.Symbol.prototype
+window.RegExp.prototype[Symbol.match]
+window.RegExp.prototype[Symbol.replace]
+window.RegExp.prototype[Symbol.search]
+window.RegExp.prototype[Symbol.split]
+
+LPB詳細:
+ES8
+ES9 Rest/Spread Properties
+ES9 for-await-of
+```
