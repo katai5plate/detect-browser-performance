@@ -63,10 +63,10 @@ window.detectES = function (es, only) {
     };
     return concatArray([
       pick(6, o.es6),
-      pick(7, o.es6),
-      pick(8, o.es6),
-      pick(9, o.es6),
-      pick(10, o.es6),
+      pick(7, o.es7),
+      pick(8, o.es8),
+      pick(9, o.es9),
+      pick(10, o.es10),
     ]);
   };
 
