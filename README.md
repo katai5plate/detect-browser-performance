@@ -10,7 +10,7 @@ waw = web-audio-webkit
 - ツクール 1.6.2
   - 非対応: ES10, waw
 - Android Firefox 68.8.1
-  - 非対応: ES9, ES10, waw
+  - 非対応: 一部ES9(正規表現関連), ES10, waw
 - Android Chrome
   - 非対応: waw
 - Android Edge 45.03.4.4958
