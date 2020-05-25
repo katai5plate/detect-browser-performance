@@ -17,3 +17,4 @@ waw = web-audio-webkit
   - 非対応: waw
 - IE 11.778.18362.0
   - 非対応: ES6-10, WEBGL(expはOK), wa, waw
+- iOS Safari 
