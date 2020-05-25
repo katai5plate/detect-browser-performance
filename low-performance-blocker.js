@@ -41,5 +41,5 @@ window.lowPerformanceBlocker = function () {
   tryit("WEB Audio", function () {
     return "AudioContext" in window || webkitAudioContext in window;
   });
-  return { result: reasons.length !== 0, reasons: reasons };
+  return { result: reasons.length === 0, reasons: reasons };
 };
