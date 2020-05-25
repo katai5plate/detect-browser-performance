@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript" src="detect-es.js"></script>
+  <p>file-access: <script>document.write((function(){try{var xhr=new XMLHttpRequest();xhr.open('GET',"detect-es.js");xhr.overrideMimeType('text/javascript');xhr.send();return true;}catch(e){return false;}})())</script></p>
+  <p>ES9: <script>document.write(detectES(9))</script></p>
+  <p>ES10: <script>document.write(detectES())</script></p>
+  <p>conv-base64: <script>document.write(!!window.atob)</script></p>
+  <p>webgl: <script>document.write(!!document.createElement("canvas").getContext("webgl"))</script></p>
+  <p>webgl-exp: <script>document.write(!!document.createElement("canvas").getContext("experimental-webgl"))</script></p>
+  <p>web-audio: <script>document.write(!!window.AudioContext)</script></p>
+  <p>web-audio-webkit: <script>document.write(!!window.webkitAudioContext)</script></p>
+</body>
+</html>
