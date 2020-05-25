@@ -8,6 +8,7 @@
 <body>
   <script type="text/javascript" src="detect-es.js"></script>
   <script class="xhr-test" type="text/javascript" src="low-performance-detector.js"></script>
+  <p>UA: <script>document.write(navigator.userAgent)</script></p>
   <p>file-access: <script>document.write((function(){try{var xhr=new XMLHttpRequest();xhr.open('GET',"index.html");xhr.overrideMimeType('text/javascript');xhr.send();console.log(xhr);return true;}catch(e){return false;}})())</script></p>
   <p>ES6: <script>document.write(detectES(6))</script></p>
   <p>ES7: <script>document.write(detectES(7))</script></p>
