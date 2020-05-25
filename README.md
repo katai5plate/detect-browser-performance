@@ -11,17 +11,17 @@ waw = web-audio-webkit
 - ツクール 1.6.2
   - 非対応: ES10, waw
 - Android Firefox 68.8.1
-  - 非対応: 一部ES9(正規表現関連), ES10, waw
+  - 非対応: ES9(正規表現), waw
 - Android Chrome
   - 非対応: waw
 - Android Edge 45.03.4.4958
   - 非対応: waw
 - IE 11.778.18362.0
-  - 非対応: ES6-10, WEBGL(expはOK), wa, waw
+  - 非対応: ES6-10, WEBGL(exp は OK), wa, waw
 - iOS Safari 604.1
-  - 非対応: 一部ES9(正規表現関連), ES10, wa
+  - 非対応: ES9(dotAll 以外の正規表現), ES10, wa
 - Edge 44.18362.449.0 (旧版)
-  - 非対応: ES6-10(所々実装されてる？), waw
+  - 非対応: ES6(Symbol 以外), ES9, ES10, waw
 ```
 detect-es詳細:
 オブジェクトのspread
