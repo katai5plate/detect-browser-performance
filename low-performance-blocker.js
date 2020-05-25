@@ -42,7 +42,7 @@ window.lowPerformanceBlocker = function () {
     xhr.send();
     return xhr.response;
   });
-  tryit("WEB Audio", function () {
+  tryit("WEB Audio API", function () {
     return "AudioContext" in window || webkitAudioContext in window;
   });
   return { result: reasons.length === 0, reasons: reasons };
