@@ -6,22 +6,24 @@
   <title>Document</title>
 </head>
 <body>
+  <p>update-app: 14:23 2020/05/28</p>
   <script type="text/javascript" src="detect-es.js"></script>
   <script class="xhr-test" type="text/javascript" src="low-performance-detector.js"></script>
   <p>UA: <script>document.write(navigator.userAgent)</script></p>
-  <p>ES6: <script>document.write(detectES(6,true))</script></p>
-  <p>ES7: <script>document.write(detectES(7,true))</script></p>
-  <p>ES8: <script>document.write(detectES(8,true))</script></p>
-  <p>ES9: <script>document.write(detectES(9,true))</script></p>
-  <p>ES10: <script>document.write(detectES(10,true))</script></p>
+  <p>ES6: <script>document.write(new DetectES(6,true).start().result)</script></p>
+  <p>ES7: <script>document.write(new DetectES(7,true).start().result)</script></p>
+  <p>ES8: <script>document.write(new DetectES(8,true).start().result)</script></p>
+  <p>ES9: <script>document.write(new DetectES(9,true).start().result)</script></p>
+  <p>ES10: <script>document.write(new DetectES(10,true).start().result)</script></p>
   <p>atob: <script>document.write(!!window.atob)</script></p>
   <p>btoa: <script>document.write(!!window.btoa)</script></p>
   <p>webgl: <script>document.write(!!document.createElement("canvas").getContext("webgl"))</script></p>
   <p>webgl-exp: <script>document.write(!!document.createElement("canvas").getContext("experimental-webgl"))</script></p>
   <p>web-audio: <script>document.write(!!window.AudioContext)</script></p>
   <p>web-audio-webkit: <script>document.write(!!window.webkitAudioContext)</script></p>
+  <p>hyphen-date: <script>document.write(new Date("2019-09-27 12:00:13").toString()!=="Invalid Date")</script></p>
   <p>detect-es詳細:</p>
-  <script>detectES()</script>
+  <script>window.esResult = DetectES().start()</script>
   <pre><script>document.write(window.esResult.syntax.join("\n"))</script></pre>
   <pre><script>document.write(window.esResult.props.join("\n"))</script></pre>
   <p>LPB詳細:</p>
