@@ -30,13 +30,27 @@ window.lowPerformanceDetector = function (onComplete) {
     } catch (e) {}
     reasons.push(reason);
   };
-  tryit("ES8", function () {
-    return detectES(8);
+  tryit("ES6-8", function () {
+    return new DetectES(8).start().result;
   });
-  tryit("ES9 Rest/Spread Properties", "(()=>({...[1,2]}))()");
-  tryit("ES9 for-await-of", "async()=>{for await (let x of []) {}}");
-  tryit("ES9 Promise.prototype.finally", function () {
-    return !!eval("Promise.resolve(1).finally");
+  tryit(
+    "ES9 Rest/Spread Properties",
+    DetectES.codes.syntax.es9.filter(function (x) {
+      return x.desc.indexOf("{...}") > -1;
+    })[0].code
+  );
+  tryit(
+    "ES9 for-await-of",
+    DetectES.codes.syntax.es9.filter(function (x) {
+      return x.desc.indexOf("for-await-of") > -1;
+    })[0].code
+  );
+  tryit("ES9 Promise.prototype features", function () {
+    return DetectES.testProps(
+      DetectES.codes.props.es9.filter(function (x) {
+        return x.parent.indexOf("Promise.prototype") > -1;
+      })[0]
+    ).result;
   });
   tryit("base64 conversions", function () {
     return "atob" in window && "btoa" in window;
@@ -45,7 +59,7 @@ window.lowPerformanceDetector = function (onComplete) {
     return document.createElement("canvas").getContext("webgl");
   });
   tryit("WEB Audio API", function () {
-    return "AudioContext" in window || webkitAudioContext in window;
+    return "AudioContext" in window || "webkitAudioContext" in window;
   });
   tryit("Fetch API", function () {
     return "fetch" in window;
