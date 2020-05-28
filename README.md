@@ -17,7 +17,7 @@ waw = web-audio-webkit
 - Android Edge 45.03.4.4958
   - 非対応: waw
 - IE 11.778.18362.0
-  - 非対応: ES6-10, WEBGL(exp は OK), wa, waw
+  - 非対応: ES6-10, WEBGL(exp は OK), wa, waw, ハイフンDate
 - iOS Safari 604.1
   - 非対応: ES9(dotAll 以外の正規表現), ES10, wa, ハイフンDate
 - Edge 44.18362.449.0 (旧版)
