@@ -18,6 +18,9 @@ waw = web-audio-webkit
   - 非対応: waw
 - IE 11.778.18362.0
   - 非対応: ES6-10, WEBGL(exp は OK), wa, waw, ハイフンDate
+  - IE10: WEBGL 完全非対応, オンラインであってもローカルファイル読み込み不可
+  - IE9: base64 完全非対応
+  - IE8: `[].forEach` とかがない
 - iOS Safari 604.1
   - 非対応: ES9(dotAll 以外の正規表現), ES10, wa, ハイフンDate
 - Edge 44.18362.449.0 (旧版)
