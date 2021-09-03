@@ -1,0 +1,15 @@
+<textarea id="code"></textarea>
+<button id="submit">OK</button>
+<pre id="result"></pre>
+<script>
+document.getElementById("submit").onclick = () => {
+  document.getElementById("result").innerHTML = (() => {
+    try{
+      eval(document.getElementById("code").value)
+    }catch(e){
+      return e.toString();
+    }
+    return "SAFE: " + +new Date();
+  })();
+}
+</script>
