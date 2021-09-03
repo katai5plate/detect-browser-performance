@@ -4,12 +4,13 @@
 <script>
 document.getElementById("submit").onclick = () => {
   document.getElementById("result").innerHTML = (() => {
+    const code = document.getElementById("code").value;
     try{
-      eval(document.getElementById("code").value)
+      eval(code)
     }catch(e){
       return e.toString();
     }
-    return "SAFE: " + +new Date();
+    return code + "\n\nSAFE: " + +new Date();
   })();
 }
 </script>
